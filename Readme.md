@@ -28,3 +28,20 @@ Also, the data is provided as a CSV-file where the first and second column repre
 # Applicant's Solution
 
 Please find attached pdf for code, results and short discussion. [Solution](task_solution.pdf)
+
+Brief description of performed signal analysis is given below,
+
+- ### Power Spectral Density (PSD) Analysis:
+
+  - **Method**: Welch’s method was applied to calculate and visualize the PSD of a received signal. This method reduces signal variance, helping to observe key features such as occupied bandwidth and null subcarriers.
+  - **Results**: The normalized occupied bandwidth was found to be 59%, with 1200 out of 2048 carriers occupied. The DC subcarrier was null.
+
+- ### Cyclic Prefix (CP) and FFT Length Detection via Correlation:
+
+  - **Method**: CP correlation was used to detect FFT lengths by iterating through possible values and identifying peaks in the correlation. A low-pass filter was applied to smooth the correlation profile, and valid peaks were detected based on specific thresholds.
+  - **Results**: The FFT length was detected to be 2048, and the CP length was found to be 256, with a detected frequency offset of approximately -2.94e-6 rad/sample.
+
+- ### Post-FFT Analysis:
+
+  - **Method**: After discarding CP samples, FFT was performed on OFDM symbols.Frequency and phase offset is present in the signal as observed in constellation diagrams. A correction for frequency offset on all time domain samples was applied. However, further corrections weren't made because of lack of knowledge about used pilot symbols or reference symbols (sequence and location in time-freq grid).
+  - **Results**: The detected modulation scheme was 16-QAM. Out of the 2048 subcarriers, 1198 were found to be occupied for most symbols, excluding the DC subcarrier.
