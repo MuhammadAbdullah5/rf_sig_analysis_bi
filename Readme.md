@@ -24,3 +24,7 @@ rx_signal = np.load("filename.npy")
 ```
 
 Also, the data is provided as a CSV-file where the first and second column represent the real and imaginary parts of the RX signal, respectively.
+
+# Applicant's Solution
+
+Please find attached pdf for code, results and short discussion. [Solution](task_solution.pdf)
